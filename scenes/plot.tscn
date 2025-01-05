@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://bx774c23w72ig"]
+
+[ext_resource type="Script" path="res://scripts/s_plot.gd" id="1_mdkmw"]
+[ext_resource type="Texture2D" uid="uid://cj8scdm0803db" path="res://sprites/tiles/misc.png" id="1_vi0en"]
+[ext_resource type="Texture2D" uid="uid://cugrql2tqj88" path="res://sprites/carrot.png" id="2_jl78l"]
+[ext_resource type="FontFile" uid="uid://cgdf353bvw0dr" path="res://fonts/FreePixel.ttf" id="4_d7igr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0ebo"]
+atlas = ExtResource("1_vi0en")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcdnl"]
+atlas = ExtResource("1_vi0en")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h546q"]
+atlas = ExtResource("1_vi0en")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_edwso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0ebo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcdnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h546q")
+}],
+"loop": true,
+"name": &"ground",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqbay"]
+atlas = ExtResource("2_jl78l")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35r3x"]
+atlas = ExtResource("2_jl78l")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgsov"]
+atlas = ExtResource("2_jl78l")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjc3a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqbay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35r3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgsov")
+}],
+"loop": true,
+"name": &"carrot",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"empty_plot",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwr61"]
+radius = 15.0
+
+[node name="S_plot" type="Node2D"]
+script = ExtResource("1_mdkmw")
+
+[node name="AS_ground" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_edwso")
+animation = &"ground"
+frame_progress = 0.716292
+
+[node name="AS_plant" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_gjc3a")
+animation = &"empty_plot"
+
+[node name="A_interact" type="Area2D" parent="." groups=["plot"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="A_interact"]
+shape = SubResource("CircleShape2D_rwr61")
+
+[node name="L_interact" type="Label" parent="."]
+texture_filter = 1
+offset_left = -33.0
+offset_top = -24.0
+offset_right = 169.0
+offset_bottom = 16.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_d7igr")
+text = "Plant seed? [e]"
+
+[node name="growth_timer" type="Timer" parent="."]
+
+[node name="L_harvest" type="Label" parent="."]
+texture_filter = 1
+offset_left = -27.0
+offset_top = -25.0
+offset_right = 175.0
+offset_bottom = 15.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_d7igr")
+text = "Harvest? [e]"
+
+[connection signal="body_entered" from="A_interact" to="." method="_on_a_interact_body_entered"]
+[connection signal="body_exited" from="A_interact" to="." method="_on_a_interact_body_exited"]
+[connection signal="timeout" from="growth_timer" to="." method="_on_growth_timer_timeout"]

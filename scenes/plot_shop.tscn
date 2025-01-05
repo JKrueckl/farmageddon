@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://5m1y4hw3xs7r"]
+
+[ext_resource type="Script" path="res://plot_shop.gd" id="1_atp8i"]
+[ext_resource type="Texture2D" uid="uid://dqbwh4pa04pou" path="res://sprites/tiles/summer and spring items.png" id="2_3ww3b"]
+[ext_resource type="FontFile" uid="uid://cgdf353bvw0dr" path="res://fonts/FreePixel.ttf" id="3_ae86s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iq7kc"]
+size = Vector2(43, 29)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frm80"]
+radius = 31.0161
+
+[node name="plot_shop" type="Node2D"]
+script = ExtResource("1_atp8i")
+
+[node name="S_house" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_3ww3b")
+hframes = 2
+vframes = 3
+
+[node name="S_door" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-7, 23)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_3ww3b")
+region_enabled = true
+region_rect = Rect2(109, 32, 18, 28)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.5, 18.5)
+shape = SubResource("RectangleShape2D_iq7kc")
+
+[node name="A_interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="A_interact"]
+position = Vector2(2, 26)
+shape = SubResource("CircleShape2D_frm80")
+
+[node name="L_interact" type="Label" parent="."]
+texture_filter = 1
+offset_left = -25.0
+offset_top = -18.0
+offset_right = 177.0
+offset_bottom = 22.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_ae86s")
+text = "Buy plot? (10) [e]"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="A_interact" to="." method="_on_a_interact_body_entered"]
+[connection signal="body_exited" from="A_interact" to="." method="_on_a_interact_body_exited"]

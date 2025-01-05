@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://d3lxu76m8m8hk" path="res://sprites/character/idle.png" id="1_nfb08"]
 [ext_resource type="Texture2D" uid="uid://dpd5vqnm2qw3d" path="res://sprites/character/walk.png" id="2_0lsvb"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ls7tq"]
-radius = 4.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vk717"]
 atlas = ExtResource("1_nfb08")
 region = Rect2(0, 80, 80, 80)
@@ -226,16 +223,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="main_character" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ls7tq"]
+radius = 4.0
+
+[node name="main_character" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_0oai1")
 speed = 10
-
-[node name="cs_character" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-shape = SubResource("CircleShape2D_ls7tq")
 
 [node name="as_character" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qmbcj")
 animation = &"walk_down"
 autoplay = "idle_down"
+
+[node name="cs_character" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_ls7tq")
