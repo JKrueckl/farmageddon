@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmocr01qjorok"
-path="res://.godot/imported/Dirt - simplified.png-bff7247fe86bc7342bb37287450415ad.ctex"
+uid="uid://b5evu82tjwnqi"
+path="res://.godot/imported/Summer - simplified.png-76d5ad4c59e83a5452e4d832d7ee0e8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Dirt - simplified.png"
-dest_files=["res://.godot/imported/Dirt - simplified.png-bff7247fe86bc7342bb37287450415ad.ctex"]
+source_file="res://sprites/tiles/Summer - simplified.png"
+dest_files=["res://.godot/imported/Summer - simplified.png-76d5ad4c59e83a5452e4d832d7ee0e8f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5evu82tjwnqi"
-path="res://.godot/imported/Summer - simplified.png-d5b9c1aec1013ef00b360c14816952eb.ctex"
+uid="uid://dsgdosv4c5655"
+path="res://.godot/imported/hurt.png-dce7f98c88746af985b8a07df2dbc2e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Summer - simplified.png"
-dest_files=["res://.godot/imported/Summer - simplified.png-d5b9c1aec1013ef00b360c14816952eb.ctex"]
+source_file="res://sprites/character/hurt.png"
+dest_files=["res://.godot/imported/hurt.png-dce7f98c88746af985b8a07df2dbc2e5.ctex"]
 
 [params]
 

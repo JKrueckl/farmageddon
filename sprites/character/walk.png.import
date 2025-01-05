@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pycpms37xai6"
-path="res://.godot/imported/Winter - simplified.png-bfc93004ce9e009c600c8ca82bfc1213.ctex"
+uid="uid://dpd5vqnm2qw3d"
+path="res://.godot/imported/walk.png-474fa20b3548c50bc57790d6237636e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Winter - simplified.png"
-dest_files=["res://.godot/imported/Winter - simplified.png-bfc93004ce9e009c600c8ca82bfc1213.ctex"]
+source_file="res://sprites/character/walk.png"
+dest_files=["res://.godot/imported/walk.png-474fa20b3548c50bc57790d6237636e3.ctex"]
 
 [params]
 

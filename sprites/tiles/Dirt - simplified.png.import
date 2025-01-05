@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bywvedhialw6x"
-path="res://.godot/imported/Fall - simplified.png-9078b9fb4ea2b41fa4492173a31a6beb.ctex"
+uid="uid://cmocr01qjorok"
+path="res://.godot/imported/Dirt - simplified.png-ae993c126685436f42920af484e9f91d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Fall - simplified.png"
-dest_files=["res://.godot/imported/Fall - simplified.png-9078b9fb4ea2b41fa4492173a31a6beb.ctex"]
+source_file="res://sprites/tiles/Dirt - simplified.png"
+dest_files=["res://.godot/imported/Dirt - simplified.png-ae993c126685436f42920af484e9f91d.ctex"]
 
 [params]
 
