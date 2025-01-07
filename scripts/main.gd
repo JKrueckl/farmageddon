@@ -16,15 +16,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (Globals.plots == 2) and (!s_plot_2.visible):
+	if (Globals.plots >= 2) and (!s_plot_2.visible):
 		s_plot_2.visible = true
-	if (Globals.plots == 3) and (!s_plot_3.visible):
+	if (Globals.plots >= 3) and (!s_plot_3.visible):
 		s_plot_3.visible = true
-	if (Globals.plots == 4) and (!s_plot_4.visible):
+	if (Globals.plots >= 4) and (!s_plot_4.visible):
 		s_plot_4.visible = true
-
-
-
+		
 func _on_t_day_cycle_timeout() -> void:
 	current_hour += 1
 	

@@ -1,10 +1,11 @@
-[gd_scene load_steps=92 format=3 uid="uid://cppdqjalyj8oi"]
+[gd_scene load_steps=101 format=3 uid="uid://cppdqjalyj8oi"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_0oai1"]
 [ext_resource type="Texture2D" uid="uid://d3lxu76m8m8hk" path="res://sprites/character/idle.png" id="1_nfb08"]
 [ext_resource type="Texture2D" uid="uid://dpd5vqnm2qw3d" path="res://sprites/character/walk.png" id="2_0lsvb"]
 [ext_resource type="Texture2D" uid="uid://bwetgc5s000v4" path="res://sprites/Hana Caraka/Hana Caraka - Base Character/Farming/sickle.png" id="2_gfcrq"]
 [ext_resource type="Texture2D" uid="uid://bikwrknhew8cy" path="res://sprites/Hana Caraka/Hana Caraka - Base Character/Farming/planting.png" id="3_egxn3"]
+[ext_resource type="Texture2D" uid="uid://bjbqx5cj5e5au" path="res://sprites/Hana Caraka/Hana Caraka - Base Character/Basic/run.png" id="5_4s3bw"]
 [ext_resource type="Texture2D" uid="uid://dhji3vfmoyrvq" path="res://sprites/Hana Caraka/Hana Caraka - Base Character/Basic/death.png" id="5_moisk"]
 [ext_resource type="Texture2D" uid="uid://be6uhkcv3kqhu" path="res://sprites/Hana Caraka/Hana Caraka - Base Character/Farming/watering.png" id="5_o8t5e"]
 
@@ -143,6 +144,38 @@ region = Rect2(160, 160, 80, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1dj1"]
 atlas = ExtResource("3_egxn3")
 region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq5m7"]
+atlas = ExtResource("5_4s3bw")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc0r7"]
+atlas = ExtResource("5_4s3bw")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pjqy"]
+atlas = ExtResource("5_4s3bw")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox0ui"]
+atlas = ExtResource("5_4s3bw")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w0h5"]
+atlas = ExtResource("5_4s3bw")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfvd3"]
+atlas = ExtResource("5_4s3bw")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6twg"]
+atlas = ExtResource("5_4s3bw")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmamo"]
+atlas = ExtResource("5_4s3bw")
+region = Rect2(560, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmx6j"]
 atlas = ExtResource("5_moisk")
@@ -475,6 +508,45 @@ animations = [{
 "name": &"planting_up",
 "speed": 10.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"run_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq5m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc0r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pjqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox0ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w0h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfvd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6twg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmamo")
+}],
+"loop": true,
+"name": &"run_horizontal",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gmx6j")
@@ -525,7 +597,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_down",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -554,7 +626,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_horizontal",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -583,7 +655,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_up",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -665,10 +737,9 @@ speed = 10
 [node name="as_character" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qmbcj")
-animation = &"sleep"
+animation = &"walk_down"
 autoplay = "idle_down"
-frame = 5
-frame_progress = 1.0
+frame_progress = 0.928631
 
 [node name="cs_character" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)

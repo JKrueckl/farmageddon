@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 @onready var as_character: AnimatedSprite2D = $as_character
 
-@export var speed = 200
+@export var speed = 75
 @export var friction = 0.5
 @export var acceleration = 0.1
+@export var sprint_multiplier = 2
 
 var stationary: bool = false
 
@@ -16,19 +17,34 @@ func handle_animation() -> void:
 		return
 	
 	if !stationary:
-		if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
-			as_character.play("walk_horizontal")
-			
-			if Input.is_action_pressed("left"):
-				as_character.flip_h = true
+		if Input.is_action_pressed("run"):
+			if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+				as_character.play("run_horizontal")
+				
+				if Input.is_action_pressed("left"):
+					as_character.flip_h = true
+				else:
+					as_character.flip_h = false
+			elif Input.is_action_pressed("up"):
+				as_character.play("run_up")
+			elif Input.is_action_pressed("down"):
+				as_character.play("run_down")
 			else:
-				as_character.flip_h = false
-		elif Input.is_action_pressed("up"):
-			as_character.play("walk_up")
-		elif Input.is_action_pressed("down"):
-			as_character.play("walk_down")
+				as_character.play("idle_down")
 		else:
-			as_character.play("idle_down")
+			if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+				as_character.play("walk_horizontal")
+				
+				if Input.is_action_pressed("left"):
+					as_character.flip_h = true
+				else:
+					as_character.flip_h = false
+			elif Input.is_action_pressed("up"):
+				as_character.play("walk_up")
+			elif Input.is_action_pressed("down"):
+				as_character.play("walk_down")
+			else:
+				as_character.play("idle_down")
 	
 	# Handle interactions
 	if Input.is_action_just_pressed("interact"):
@@ -46,6 +62,7 @@ func handle_animation() -> void:
 
 func get_input() -> Vector2:
 	var input = Vector2()
+	
 	if Input.is_action_pressed('right'):
 		input.x += 1
 	if Input.is_action_pressed('left'):
@@ -64,9 +81,12 @@ func _physics_process(delta: float) -> void:
 	
 	if !stationary:
 		var direction = get_input()
-
+		var calculated_speed = speed
+		if Input.is_action_pressed("run"):
+			calculated_speed = speed * sprint_multiplier
+		
 		if direction.length() > 0:
-			velocity = velocity.lerp(direction.normalized() * speed, acceleration)
+			velocity = velocity.lerp(direction.normalized() * calculated_speed, acceleration)
 		else:
 			velocity = velocity.lerp(Vector2.ZERO, friction)
 		

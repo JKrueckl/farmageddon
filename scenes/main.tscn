@@ -77,9 +77,10 @@ position = Vector2(441, 103)
 
 [node name="main_character" parent="." instance=ExtResource("3_hcol2")]
 position = Vector2(208, 140)
-speed = 100
+speed = 75
 
 [node name="T_day_cycle" type="Timer" parent="."]
+wait_time = 10.0
 autostart = true
 
 [node name="inventory" parent="." instance=ExtResource("12_qw3wr")]
