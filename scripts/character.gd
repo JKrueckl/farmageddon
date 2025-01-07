@@ -6,20 +6,43 @@ extends CharacterBody2D
 @export var friction = 0.5
 @export var acceleration = 0.1
 
+var stationary: bool = false
+
 func handle_animation() -> void:
-	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
-		as_character.play("walk_horizontal")
-		
-		if Input.is_action_pressed("left"):
-			as_character.flip_h = true
+	
+	if Globals.current_state == "sleep":
+		as_character.play("sleep")
+		stationary = true
+		return
+	
+	if !stationary:
+		if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+			as_character.play("walk_horizontal")
+			
+			if Input.is_action_pressed("left"):
+				as_character.flip_h = true
+			else:
+				as_character.flip_h = false
+		elif Input.is_action_pressed("up"):
+			as_character.play("walk_up")
+		elif Input.is_action_pressed("down"):
+			as_character.play("walk_down")
 		else:
-			as_character.flip_h = false
-	elif Input.is_action_pressed("up"):
-		as_character.play("walk_up")
-	elif Input.is_action_pressed("down"):
-		as_character.play("walk_down")
-	else:
-		as_character.play("idle_down")
+			as_character.play("idle_down")
+	
+	# Handle interactions
+	if Input.is_action_just_pressed("interact"):
+		if Globals.current_state == "idle":
+			return
+		elif Globals.current_state == "watering":
+			as_character.play("watering_horizontal")
+			stationary = true
+		elif Globals.current_state == "planting":
+			as_character.play("planting_horizontal")
+			stationary = true
+		elif Globals.current_state == "harvesting":
+			as_character.play("harvest_horizontal")
+			stationary = true
 
 func get_input() -> Vector2:
 	var input = Vector2()
@@ -38,16 +61,28 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	var direction = get_input()
-
-	if direction.length() > 0:
-		velocity = velocity.lerp(direction.normalized() * speed, acceleration)
-	else:
-		velocity = velocity.lerp(Vector2.ZERO, friction)
 	
-	move_and_slide()
+	if !stationary:
+		var direction = get_input()
+
+		if direction.length() > 0:
+			velocity = velocity.lerp(direction.normalized() * speed, acceleration)
+		else:
+			velocity = velocity.lerp(Vector2.ZERO, friction)
+		
+		move_and_slide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	handle_animation()
+
+
+func _on_as_character_animation_finished() -> void:
+	
+	if Globals.current_state == "sleep":
+		get_tree().change_scene_to_file("res://Scenes/round_over.tscn")
+		
+	as_character.play("idle_down")
+	stationary = false
+	Globals.current_state = "idle"

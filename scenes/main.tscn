@@ -80,7 +80,6 @@ position = Vector2(208, 140)
 speed = 100
 
 [node name="T_day_cycle" type="Timer" parent="."]
-wait_time = 10.0
 autostart = true
 
 [node name="inventory" parent="." instance=ExtResource("12_qw3wr")]

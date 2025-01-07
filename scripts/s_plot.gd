@@ -31,6 +31,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and (Globals.bucket_charges == 1) and (is_in_range) and (!watered_plant):
 		as_ground.frame = 3
 		
+		# Set globals for animation
+		Globals.current_state = "watering"
+		
 		# Set plant to watered
 		watered_plant = true
 		
@@ -45,6 +48,9 @@ func _process(delta: float) -> void:
 		# change sprite to a carrot
 		as_plant.play("carrot", 0)
 		as_plant.frame = 0
+		
+		# Set globals for animation
+		Globals.current_state = "planting"
 		
 		# plant is now growing
 		plant_currently_growing = true
@@ -62,6 +68,9 @@ func _process(delta: float) -> void:
 		# reset sprite to empty plot
 		as_plant.play("empty_plot", 0)
 		as_ground.frame = 1
+		
+		# Set globals for animation
+		Globals.current_state = "harvesting"
 		
 		# reset plant
 		plant_currently_growing = false

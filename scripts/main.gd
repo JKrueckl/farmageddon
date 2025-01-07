@@ -30,6 +30,6 @@ func _on_t_day_cycle_timeout() -> void:
 	
 	l_day_cycle.text = str(current_hour) + ":00"
 	if current_hour == deadline_hour:
-		get_tree().change_scene_to_file("res://Scenes/round_over.tscn")
+		Globals.current_state = "sleep"
 		
 		
