@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://5m1y4hw3xs7r"]
 
-[ext_resource type="Script" path="res://plot_shop.gd" id="1_atp8i"]
+[ext_resource type="Script" path="res://scripts/plot_shop.gd" id="1_atp8i"]
 [ext_resource type="Texture2D" uid="uid://bayur25hkg4xb" path="res://sprites/Hana Caraka/House/House1.png" id="2_6nbnx"]
 [ext_resource type="FontFile" uid="uid://cgdf353bvw0dr" path="res://fonts/FreePixel.ttf" id="3_ae86s"]
 

@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://boa63o76flfyv"]
+
+[ext_resource type="Script" path="res://scripts/watering_buckets.gd" id="1_jvkmp"]
+[ext_resource type="Texture2D" uid="uid://dqbwh4pa04pou" path="res://sprites/tiles/summer and spring items.png" id="2_j2ucf"]
+[ext_resource type="FontFile" uid="uid://cgdf353bvw0dr" path="res://fonts/FreePixel.ttf" id="3_m1ynw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t607b"]
+size = Vector2(14, 13.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hjl3q"]
+radius = 14.0
+
+[node name="watering_buckets" type="Node2D"]
+script = ExtResource("1_jvkmp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_j2ucf")
+region_enabled = true
+region_rect = Rect2(1, 209, 14, 13)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(0, 0.25)
+shape = SubResource("RectangleShape2D_t607b")
+
+[node name="A_interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="A_interact"]
+shape = SubResource("CircleShape2D_hjl3q")
+
+[node name="L_interact" type="Label" parent="A_interact"]
+texture_filter = 1
+offset_left = -54.0
+offset_top = -21.0
+offset_right = 148.0
+offset_bottom = 19.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_m1ynw")
+text = "Get water bucket? (e)"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="A_interact" to="." method="_on_a_interact_body_entered"]
+[connection signal="body_exited" from="A_interact" to="." method="_on_a_interact_body_exited"]

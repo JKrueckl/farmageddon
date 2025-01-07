@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cugrql2tqj88"
-path="res://.godot/imported/carrot.png-76d9ce4583170baa6781d85b0386a785.ctex"
+uid="uid://ccsc854c7x5ht"
+path="res://.godot/imported/Tufts and Lumps.png-9f8251df6d477c4b9b5d79dc50117d9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/carrot.png"
-dest_files=["res://.godot/imported/carrot.png-76d9ce4583170baa6781d85b0386a785.ctex"]
+source_file="res://sprites/misc/Tufts and Lumps.png"
+dest_files=["res://.godot/imported/Tufts and Lumps.png-9f8251df6d477c4b9b5d79dc50117d9e.ctex"]
 
 [params]
 

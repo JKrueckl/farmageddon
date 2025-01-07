@@ -1,7 +1,4 @@
 extends Node2D
-@onready var l_money: Label = $L_money
-@onready var l_seeds: Label = $L_seeds
-@onready var l_carrots: Label = $L_carrots
 @onready var l_day_cycle: Label = $L_day_cycle
 @onready var s_plot_4: Node2D = $plot_group/S_plot_4
 @onready var s_plot_3: Node2D = $plot_group/S_plot_3
@@ -19,9 +16,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	l_seeds.text = ": " + str(Globals.seeds)
-	l_money.text = ": " + str(Globals.money)
-	l_carrots.text = ": " + str(Globals.carrots)
 	if (Globals.plots == 2) and (!s_plot_2.visible):
 		s_plot_2.visible = true
 	if (Globals.plots == 3) and (!s_plot_3.visible):

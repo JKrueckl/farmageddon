@@ -8,6 +8,7 @@ var carrot_multiplyer = 2
 var goal = 20
 var plots = 1
 var max_plots = 4
+var bucket_charges = 0
 
 func reset_game() -> void:
 	seeds = 1
@@ -16,3 +17,4 @@ func reset_game() -> void:
 	round = 1
 	goal = 20
 	plots = 1
+	bucket_charges = 0

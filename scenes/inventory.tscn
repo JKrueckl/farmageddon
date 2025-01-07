@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3m87d22ysubt"]
+
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="1_bsp52"]
+[ext_resource type="Texture2D" uid="uid://c0j42djiuqksq" path="res://sprites/inventory/Sample-InventorySlotsSet.png" id="1_i4mn7"]
+[ext_resource type="Texture2D" uid="uid://dwaa7nuh76dk7" path="res://sprites/Coin Pack/coin7.png" id="2_tisgm"]
+[ext_resource type="FontFile" uid="uid://cgdf353bvw0dr" path="res://fonts/FreePixel.ttf" id="3_vjj0g"]
+[ext_resource type="Texture2D" uid="uid://dqbwh4pa04pou" path="res://sprites/tiles/summer and spring items.png" id="4_udxxa"]
+[ext_resource type="Texture2D" uid="uid://cugrql2tqj88" path="res://sprites/misc/carrot.png" id="5_4bvne"]
+
+[node name="inventory" type="Node2D"]
+script = ExtResource("1_bsp52")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(59.3751, 4.99998)
+scale = Vector2(1.91667, 1.91667)
+texture = ExtResource("1_i4mn7")
+region_enabled = true
+region_rect = Rect2(364, 79, 75, 24)
+
+[node name="S_money" type="Sprite2D" parent="Sprite2D"]
+texture_filter = 1
+position = Vector2(-25, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_tisgm")
+
+[node name="L_money" type="Label" parent="Sprite2D"]
+texture_filter = 1
+offset_left = -21.0
+offset_top = 3.0
+offset_right = 19.0
+offset_bottom = 26.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("3_vjj0g")
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="S_bucket" type="Sprite2D" parent="Sprite2D"]
+texture_filter = 1
+position = Vector2(-8.42308, 2.38419e-07)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_udxxa")
+region_enabled = true
+region_rect = Rect2(1, 209, 14, 13)
+
+[node name="L_bucket" type="Label" parent="Sprite2D"]
+texture_filter = 1
+offset_left = -4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 19.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("3_vjj0g")
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="S_seed" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(8.19231, -7.07692)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_4bvne")
+hframes = 5
+
+[node name="L_seeds" type="Label" parent="Sprite2D"]
+texture_filter = 1
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 23.0
+offset_bottom = 26.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("3_vjj0g")
+text = "1"
+
+[node name="S_carrots" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(25.1154, -7.07692)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_4bvne")
+hframes = 5
+frame = 1
+
+[node name="L_carrots" type="Label" parent="Sprite2D"]
+texture_filter = 1
+offset_left = 30.0
+offset_top = 3.0
+offset_right = 40.0
+offset_bottom = 26.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("3_vjj0g")
+text = "0"

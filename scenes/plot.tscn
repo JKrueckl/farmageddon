@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/s_plot.gd" id="1_mdkmw"]
 [ext_resource type="Texture2D" uid="uid://cj8scdm0803db" path="res://sprites/tiles/misc.png" id="1_vi0en"]
-[ext_resource type="Texture2D" uid="uid://cugrql2tqj88" path="res://sprites/carrot.png" id="2_jl78l"]
+[ext_resource type="Texture2D" uid="uid://cugrql2tqj88" path="res://sprites/misc/carrot.png" id="2_jl78l"]
 [ext_resource type="FontFile" uid="uid://cgdf353bvw0dr" path="res://fonts/FreePixel.ttf" id="4_d7igr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0ebo"]
@@ -119,6 +119,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_d7igr")
 text = "Harvest? [e]"
+
+[node name="L_water" type="Label" parent="."]
+texture_filter = 1
+offset_left = -27.0
+offset_top = -25.0
+offset_right = 175.0
+offset_bottom = 15.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_d7igr")
+text = "Water crop? [e]"
 
 [connection signal="body_entered" from="A_interact" to="." method="_on_a_interact_body_entered"]
 [connection signal="body_exited" from="A_interact" to="." method="_on_a_interact_body_exited"]

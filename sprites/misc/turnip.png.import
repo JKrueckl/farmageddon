@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mnxeqc83ltes"
-path="res://.godot/imported/Assets 1.png-5744835d73c57204d5e4819f82e19f41.ctex"
+uid="uid://b70h268jfyqbc"
+path="res://.godot/imported/turnip.png-11d27996d2aa0da4fb5bba6cfcbb5769.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Assets 1.png"
-dest_files=["res://.godot/imported/Assets 1.png-5744835d73c57204d5e4819f82e19f41.ctex"]
+source_file="res://sprites/misc/turnip.png"
+dest_files=["res://.godot/imported/turnip.png-11d27996d2aa0da4fb5bba6cfcbb5769.ctex"]
 
 [params]
 

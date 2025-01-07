@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://cppdqjalyj8oi" path="res://scenes/character.tscn" id="3_hcol2"]
 [ext_resource type="PackedScene" uid="uid://bx774c23w72ig" path="res://scenes/plot.tscn" id="4_dr1up"]
 [ext_resource type="FontFile" uid="uid://cgdf353bvw0dr" path="res://fonts/FreePixel.ttf" id="5_ey5kq"]
-[ext_resource type="Texture2D" uid="uid://cugrql2tqj88" path="res://sprites/carrot.png" id="7_mcte5"]
-[ext_resource type="Texture2D" uid="uid://dwaa7nuh76dk7" path="res://sprites/Coin Pack/coin7.png" id="7_xt1d5"]
+[ext_resource type="PackedScene" uid="uid://boa63o76flfyv" path="res://scenes/watering_buckets.tscn" id="6_542ng"]
 [ext_resource type="PackedScene" uid="uid://dae7k05ishnuh" path="res://scenes/shop.tscn" id="9_thl8m"]
-[ext_resource type="Texture2D" uid="uid://mnxeqc83ltes" path="res://sprites/Assets 1.png" id="10_wyo3k"]
+[ext_resource type="Texture2D" uid="uid://mnxeqc83ltes" path="res://sprites/misc/Assets 1.png" id="10_wyo3k"]
 [ext_resource type="PackedScene" uid="uid://5m1y4hw3xs7r" path="res://scenes/plot_shop.tscn" id="11_34yp6"]
+[ext_resource type="PackedScene" uid="uid://b3m87d22ysubt" path="res://scenes/inventory.tscn" id="12_qw3wr"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_mgumt")
@@ -72,64 +72,26 @@ position = Vector2(388, 152)
 [node name="S_plot_4" parent="plot_group" instance=ExtResource("4_dr1up")]
 position = Vector2(338, 102)
 
+[node name="watering_buckets" parent="." instance=ExtResource("6_542ng")]
+position = Vector2(441, 103)
+
 [node name="main_character" parent="." instance=ExtResource("3_hcol2")]
 position = Vector2(208, 140)
 speed = 100
-
-[node name="L_money" type="Label" parent="."]
-texture_filter = 1
-offset_left = 522.0
-offset_top = 300.0
-offset_right = 562.0
-offset_bottom = 323.0
-theme_override_fonts/font = ExtResource("5_ey5kq")
-text = "0"
-metadata/_edit_use_anchors_ = true
-
-[node name="S_money" type="Sprite2D" parent="L_money"]
-position = Vector2(-6, 8)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("7_xt1d5")
-
-[node name="L_seeds" type="Label" parent="."]
-texture_filter = 1
-offset_left = 26.0
-offset_top = 300.0
-offset_right = 36.0
-offset_bottom = 323.0
-theme_override_fonts/font = ExtResource("5_ey5kq")
-text = "1"
-
-[node name="S_seed" type="Sprite2D" parent="L_seeds"]
-position = Vector2(-8, -1)
-texture = ExtResource("7_mcte5")
-hframes = 5
-
-[node name="L_carrots" type="Label" parent="."]
-texture_filter = 1
-offset_left = 277.435
-offset_top = 300.0
-offset_right = 287.435
-offset_bottom = 323.0
-theme_override_fonts/font = ExtResource("5_ey5kq")
-text = "0"
-
-[node name="S_carrots" type="Sprite2D" parent="L_carrots"]
-position = Vector2(-8, -1)
-texture = ExtResource("7_mcte5")
-hframes = 5
-frame = 1
 
 [node name="T_day_cycle" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
 
+[node name="inventory" parent="." instance=ExtResource("12_qw3wr")]
+position = Vector2(360, 298)
+
 [node name="L_day_cycle" type="Label" parent="."]
 texture_filter = 1
-offset_left = 533.0
-offset_top = 3.0
-offset_right = 573.0
-offset_bottom = 26.0
+offset_left = 517.0
+offset_top = 297.0
+offset_right = 557.0
+offset_bottom = 320.0
 theme_override_fonts/font = ExtResource("5_ey5kq")
 text = "5:00"
 

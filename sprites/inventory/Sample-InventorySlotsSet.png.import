@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtxc3wx3tyewm"
-path="res://.godot/imported/radish.png-871029f792aca53b5a3b8ffc20c60049.ctex"
+uid="uid://c0j42djiuqksq"
+path="res://.godot/imported/Sample-InventorySlotsSet.png-9d1f908eead1a137e1ea729980ce0f7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/radish.png"
-dest_files=["res://.godot/imported/radish.png-871029f792aca53b5a3b8ffc20c60049.ctex"]
+source_file="res://sprites/inventory/Sample-InventorySlotsSet.png"
+dest_files=["res://.godot/imported/Sample-InventorySlotsSet.png-9d1f908eead1a137e1ea729980ce0f7b.ctex"]
 
 [params]
 
