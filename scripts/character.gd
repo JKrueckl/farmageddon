@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var as_character: AnimatedSprite2D = $as_character
-
+@onready var stamina_timer: Timer = $stamina_timer
 @export var speed = 75
 @export var friction = 0.5
 @export var acceleration = 0.1
@@ -17,7 +17,7 @@ func handle_animation() -> void:
 		return
 	
 	if !stationary:
-		if Input.is_action_pressed("run"):
+		if Input.is_action_pressed("run") and Globals.stamina_progress > 0:
 			if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 				as_character.play("run_horizontal")
 				
@@ -25,9 +25,9 @@ func handle_animation() -> void:
 					as_character.flip_h = true
 				else:
 					as_character.flip_h = false
-			elif Input.is_action_pressed("up"):
+			elif Input.is_action_pressed("up") and Globals.stamina_progress > 0:
 				as_character.play("run_up")
-			elif Input.is_action_pressed("down"):
+			elif Input.is_action_pressed("down") and Globals.stamina_progress > 0:
 				as_character.play("run_down")
 			else:
 				as_character.play("idle_down")
@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 	if !stationary:
 		var direction = get_input()
 		var calculated_speed = speed
-		if Input.is_action_pressed("run"):
+		if Input.is_action_pressed("run") and Globals.stamina_progress > 0:
 			calculated_speed = speed * sprint_multiplier
 		
 		if direction.length() > 0:
@@ -106,3 +106,14 @@ func _on_as_character_animation_finished() -> void:
 	as_character.play("idle_down")
 	stationary = false
 	Globals.current_state = "idle"
+	
+func _on_stamina_timer_timeout() -> void:
+	if !stationary:
+		if Input.is_action_pressed("run")and Globals.stamina_progress > 0:
+				Globals.stamina_progress -= 25
+				Globals.stamina_progress = max(Globals.stamina_progress, 0)
+	else:
+		Globals.stamina_progress += 25
+		Globals.stamina_progress = max(Globals.stamina_progress, 100)  
+	
+	

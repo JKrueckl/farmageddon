@@ -10,6 +10,7 @@ var plots = 1
 var max_plots = 4
 var bucket_charges = 0
 var current_state = "idle"
+var stamina_progress = 100
 
 func reset_game() -> void:
 	seeds = 1

@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://dge2cjje7avur"]
+
+[ext_resource type="Script" path="res://scripts/stamina_bar.gd" id="1_8dvwi"]
+[ext_resource type="Texture2D" uid="uid://dev6c0h1h3dtq" path="res://sprites/misc/yellow_stamina_bar/meter_bar_holder_left_edge_yellow.png" id="1_8hd0p"]
+[ext_resource type="Texture2D" uid="uid://pxr12d7he17o" path="res://sprites/misc/yellow_stamina_bar/meter_bar_holder_center-repeating_yellow.png" id="2_uhmh6"]
+[ext_resource type="Texture2D" uid="uid://b4mer7xxl7s5v" path="res://sprites/misc/yellow_stamina_bar/meter_bar_holder_right_edge_yellow.png" id="3_7b1ci"]
+[ext_resource type="Texture2D" uid="uid://it7dppq1ljt5" path="res://sprites/misc/yellow_stamina_bar/meter_bar_left_edge_yellow.png" id="4_dmcpk"]
+[ext_resource type="Texture2D" uid="uid://c2st1f62jb8ph" path="res://sprites/misc/yellow_stamina_bar/meter_bar_center-repeating_yellow.png" id="5_4bagl"]
+[ext_resource type="Texture2D" uid="uid://bx0e5wifhnblv" path="res://sprites/misc/yellow_stamina_bar/meter_bar_right_edge_yellow.png" id="6_45n85"]
+[ext_resource type="Texture2D" uid="uid://3whpwupvxl7x" path="res://sprites/misc/yellow_stamina_bar/meter_icon_holder_yellow.png" id="7_b5sp5"]
+[ext_resource type="Texture2D" uid="uid://dr4c2hn2i0spl" path="res://sprites/misc/yellow_stamina_bar/stamina.png" id="8_h2xit"]
+
+[node name="stamina_bar" type="Node2D"]
+script = ExtResource("1_8dvwi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+texture = ExtResource("1_8hd0p")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+position = Vector2(210, 0)
+texture = ExtResource("2_uhmh6")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control"]
+position = Vector2(420, 0)
+texture = ExtResource("2_uhmh6")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Control"]
+position = Vector2(640, 0)
+texture = ExtResource("2_uhmh6")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Control"]
+position = Vector2(850, 0)
+texture = ExtResource("2_uhmh6")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Control"]
+position = Vector2(1050, 0)
+texture = ExtResource("3_7b1ci")
+
+[node name="25_stamina" type="Sprite2D" parent="Control"]
+position = Vector2(17, 0)
+scale = Vector2(1.16505, 1)
+texture = ExtResource("4_dmcpk")
+
+[node name="50_stamina" type="Sprite2D" parent="Control"]
+position = Vector2(300, 0)
+scale = Vector2(15, 1)
+texture = ExtResource("5_4bagl")
+
+[node name="75_stamina" type="Sprite2D" parent="Control"]
+position = Vector2(600, 0)
+scale = Vector2(16.2955, 1)
+texture = ExtResource("5_4bagl")
+
+[node name="100_stamina" type="Sprite2D" parent="Control"]
+position = Vector2(959, 0)
+scale = Vector2(1.7767, 1)
+texture = ExtResource("6_45n85")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Control"]
+position = Vector2(1000, 0)
+scale = Vector2(0.441508, 0.441508)
+texture = ExtResource("7_b5sp5")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Control"]
+position = Vector2(1000, 0)
+scale = Vector2(0.528509, 0.528509)
+texture = ExtResource("8_h2xit")
