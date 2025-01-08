@@ -43,25 +43,27 @@ texture = ExtResource("2_uhmh6")
 position = Vector2(1050, 0)
 texture = ExtResource("3_7b1ci")
 
-[node name="25_stamina" type="Sprite2D" parent="Control"]
-position = Vector2(17, 0)
-scale = Vector2(1.16505, 1)
+[node name="stamina_bar" type="Sprite2D" parent="Control"]
+position = Vector2(1, 0)
 texture = ExtResource("4_dmcpk")
+centered = false
+offset = Vector2(0, -175)
+region_enabled = true
+region_rect = Rect2(95, 0, 111, 349)
 
-[node name="50_stamina" type="Sprite2D" parent="Control"]
-position = Vector2(300, 0)
-scale = Vector2(15, 1)
+[node name="MeterBarCenter-repeatingYellow" type="Sprite2D" parent="Control/stamina_bar"]
+position = Vector2(110.623, 0)
+scale = Vector2(35, 1)
 texture = ExtResource("5_4bagl")
+centered = false
+offset = Vector2(0, -175)
 
-[node name="75_stamina" type="Sprite2D" parent="Control"]
-position = Vector2(600, 0)
-scale = Vector2(16.2955, 1)
-texture = ExtResource("5_4bagl")
-
-[node name="100_stamina" type="Sprite2D" parent="Control"]
-position = Vector2(959, 0)
-scale = Vector2(1.7767, 1)
+[node name="MeterBarRightEdgeYellow" type="Sprite2D" parent="Control/stamina_bar/MeterBarCenter-repeatingYellow"]
+position = Vector2(22, 0)
+scale = Vector2(0.0285714, 1)
 texture = ExtResource("6_45n85")
+centered = false
+offset = Vector2(0, -175)
 
 [node name="Sprite2D13" type="Sprite2D" parent="Control"]
 position = Vector2(1000, 0)
