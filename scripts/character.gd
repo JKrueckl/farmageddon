@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var friction = 0.5
 @export var acceleration = 0.1
 @export var sprint_multiplier = 2
+@export var sprint_recovery = 25
 
 var stationary: bool = false
 var stamina_depleted: bool = false
@@ -103,7 +104,7 @@ func _process(delta: float) -> void:
 			stamina_depleted = true
 	elif Globals.stamina_progress <= (100 + delta * 10):
 		Globals.stamina_progress += delta * 10
-		if Globals.stamina_progress >= 10:
+		if Globals.stamina_progress >= sprint_recovery:
 			stamina_depleted = false
 		
 	print(Globals.stamina_progress)
