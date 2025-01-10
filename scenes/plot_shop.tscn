@@ -18,9 +18,18 @@ script = ExtResource("1_atp8i")
 
 [node name="S_house" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, 17)
 texture = ExtResource("2_6nbnx")
 region_enabled = true
-region_rect = Rect2(64, 9, 92, 69)
+region_rect = Rect2(64, 42, 92, 36)
+
+[node name="S_house2" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -17)
+texture = ExtResource("2_6nbnx")
+region_enabled = true
+region_rect = Rect2(64, 9, 92, 33)
 
 [node name="S_door" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -64,6 +73,7 @@ position = Vector2(0, 12)
 shape = SubResource("CircleShape2D_frm80")
 
 [node name="L_interact" type="Label" parent="."]
+z_index = 2
 texture_filter = 1
 offset_left = -43.0
 offset_top = -19.0

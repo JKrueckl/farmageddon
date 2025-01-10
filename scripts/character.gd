@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var as_character: AnimatedSprite2D = $as_character
+@onready var asp_character_footsteps: AudioStreamPlayer2D = $asp_character_footsteps
+
 @export var speed = 75
 @export var friction = 0.5
 @export var acceleration = 0.1
@@ -76,7 +78,7 @@ func get_input() -> Vector2:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 func _physics_process(delta: float) -> void:
 	
@@ -85,8 +87,13 @@ func _physics_process(delta: float) -> void:
 		var calculated_speed = speed
 		if Input.is_action_pressed("run") and !stamina_depleted:
 			calculated_speed = speed * sprint_multiplier
+			asp_character_footsteps.pitch_scale = 1.3
+		else:
+			asp_character_footsteps.pitch_scale = 1.15
 		
 		if direction.length() > 0:
+			if !asp_character_footsteps.playing:	
+				asp_character_footsteps.play()
 			velocity = velocity.lerp(direction.normalized() * calculated_speed, acceleration)
 		else:
 			velocity = velocity.lerp(Vector2.ZERO, friction)
@@ -116,5 +123,4 @@ func _on_as_character_animation_finished() -> void:
 	as_character.play("idle_down")
 	stationary = false
 	Globals.current_state = "idle"
-	
 	

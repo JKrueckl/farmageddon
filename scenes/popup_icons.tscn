@@ -33,6 +33,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="carrot_seed" type="Sprite2D" parent="RigidBody2D/L_quantity"]
 visible = false
+z_index = 10
 texture_filter = 1
 position = Vector2(26.4286, 5.71429)
 scale = Vector2(1.42857, 1.42857)
@@ -42,6 +43,7 @@ region_rect = Rect2(2, 16, 13, 16)
 
 [node name="carrot" type="Sprite2D" parent="RigidBody2D/L_quantity"]
 visible = false
+z_index = 10
 texture_filter = 1
 position = Vector2(26.4286, 5.71429)
 scale = Vector2(1.42857, 1.42857)
@@ -51,6 +53,7 @@ region_rect = Rect2(17, 16, 15, 15)
 
 [node name="coin" type="Sprite2D" parent="RigidBody2D/L_quantity"]
 visible = false
+z_index = 10
 texture_filter = 1
 position = Vector2(26.4286, 5.71429)
 scale = Vector2(2.14286, 2.14286)
@@ -58,6 +61,7 @@ texture = ExtResource("4_tla81")
 
 [node name="water_bucket" type="Sprite2D" parent="RigidBody2D/L_quantity"]
 visible = false
+z_index = 10
 texture_filter = 1
 position = Vector2(27.8571, 7.14286)
 scale = Vector2(1.42857, 1.42857)
