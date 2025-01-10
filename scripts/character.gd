@@ -107,7 +107,6 @@ func _process(delta: float) -> void:
 		if Globals.stamina_progress >= sprint_recovery:
 			stamina_depleted = false
 		
-	print(Globals.stamina_progress)
 		
 func _on_as_character_animation_finished() -> void:
 	

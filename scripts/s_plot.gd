@@ -6,10 +6,11 @@ extends Node2D
 @onready var growth_timer: Timer = $growth_timer
 @onready var l_harvest: Label = $L_harvest
 @onready var l_water: Label = $L_water
+const POPUP_ICONS = preload("res://scenes/popup_icons.tscn")
 
 var can_plant = false
 var plant_currently_growing = false
-var total_progress = 5
+var total_progress = 1
 var current_progress = 0
 var fully_grown = false
 var is_in_range = false
@@ -28,7 +29,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	#Water
-	if Input.is_action_just_pressed("interact") and (Globals.bucket_charges == 1) and (is_in_range) and (!watered_plant):
+	if Input.is_action_just_pressed("interact") and (Globals.bucket_charges > 0) and (is_in_range) and (!watered_plant):
+		var popup = POPUP_ICONS.instantiate()
+		popup.quantity = -1
+		popup.item = "water_bucket"
+		popup.position = Vector2(0, -20)
+		add_child(popup)
+		
+		
 		as_ground.frame = 3
 		
 		# Set globals for animation
@@ -45,6 +53,12 @@ func _process(delta: float) -> void:
 		Globals.bucket_charges -= 1
 	#Plant 
 	elif Input.is_action_just_pressed("interact") and Globals.seeds > 0 and (is_in_range) and (!plant_currently_growing) and watered_plant:
+		var popup = POPUP_ICONS.instantiate()
+		popup.quantity = -1
+		popup.item = "carrot_seed"
+		popup.position = Vector2(0, -20)
+		add_child(popup)
+		
 		# change sprite to a carrot
 		as_plant.play("carrot", 0)
 		as_plant.frame = 0
@@ -65,6 +79,18 @@ func _process(delta: float) -> void:
 		Globals.seeds -= 1
 	#Harvest
 	elif Input.is_action_just_pressed("interact") and (fully_grown) and (is_in_range):
+		var popup_coin = POPUP_ICONS.instantiate()
+		popup_coin.quantity = +2
+		popup_coin.item = "coin"
+		popup_coin.position = Vector2(0, -20)
+		add_child(popup_coin)
+		
+		var popup_carrot = POPUP_ICONS.instantiate()
+		popup_carrot.quantity = +1
+		popup_carrot.item = "carrot"
+		popup_carrot.position = Vector2(0, -30)
+		add_child(popup_carrot)
+		
 		# reset sprite to empty plot
 		as_plant.play("empty_plot", 0)
 		as_ground.frame = 1

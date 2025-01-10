@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://46jhfhr0yfwn"]
+
+[ext_resource type="Script" path="res://popup_icons.gd" id="1_qr8f0"]
+[ext_resource type="FontFile" uid="uid://cgdf353bvw0dr" path="res://fonts/FreePixel.ttf" id="2_o3uoc"]
+[ext_resource type="Texture2D" uid="uid://cugrql2tqj88" path="res://sprites/misc/carrot.png" id="3_xqgex"]
+[ext_resource type="Texture2D" uid="uid://dwaa7nuh76dk7" path="res://sprites/Coin Pack/coin7.png" id="4_tla81"]
+[ext_resource type="Texture2D" uid="uid://dqbwh4pa04pou" path="res://sprites/tiles/summer and spring items.png" id="5_q3an4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rqpie"]
+radius = 0.0
+
+[node name="popup_icons" type="Node2D"]
+script = ExtResource("1_qr8f0")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.01
+gravity_scale = 0.005
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_rqpie")
+disabled = true
+
+[node name="L_quantity" type="Label" parent="RigidBody2D"]
+texture_filter = 1
+offset_right = 8.0
+offset_bottom = 16.0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_o3uoc")
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="carrot_seed" type="Sprite2D" parent="RigidBody2D/L_quantity"]
+visible = false
+texture_filter = 1
+position = Vector2(26.4286, 5.71429)
+scale = Vector2(1.42857, 1.42857)
+texture = ExtResource("3_xqgex")
+region_enabled = true
+region_rect = Rect2(2, 16, 13, 16)
+
+[node name="carrot" type="Sprite2D" parent="RigidBody2D/L_quantity"]
+visible = false
+texture_filter = 1
+position = Vector2(26.4286, 5.71429)
+scale = Vector2(1.42857, 1.42857)
+texture = ExtResource("3_xqgex")
+region_enabled = true
+region_rect = Rect2(17, 16, 15, 15)
+
+[node name="coin" type="Sprite2D" parent="RigidBody2D/L_quantity"]
+visible = false
+texture_filter = 1
+position = Vector2(26.4286, 5.71429)
+scale = Vector2(2.14286, 2.14286)
+texture = ExtResource("4_tla81")
+
+[node name="water_bucket" type="Sprite2D" parent="RigidBody2D/L_quantity"]
+visible = false
+texture_filter = 1
+position = Vector2(27.8571, 7.14286)
+scale = Vector2(1.42857, 1.42857)
+texture = ExtResource("5_q3an4")
+region_enabled = true
+region_rect = Rect2(1, 209, 14, 13)
+
+[node name="kill_timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="fade_timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="kill_timer" to="." method="_on_kill_timer_timeout"]
+[connection signal="timeout" from="fade_timer" to="." method="_on_fade_timer_timeout"]

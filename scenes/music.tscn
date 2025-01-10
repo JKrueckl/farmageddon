@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbtjkhqdps46n"]
+
+[ext_resource type="Script" path="res://music.gd" id="1_ve4nr"]
+[ext_resource type="AudioStream" uid="uid://lng7q62cu5e1" path="res://sound/music/Bunny's Wrath.mp3" id="2_6y5i5"]
+
+[node name="music" type="Node2D"]
+script = ExtResource("1_ve4nr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_6y5i5")
+volume_db = -20.0
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

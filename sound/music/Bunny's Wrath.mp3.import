@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lng7q62cu5e1"
+path="res://.godot/imported/Bunny's Wrath.mp3-47c7e75aeaeffe6c3e555587cb5eeda8.mp3str"
+
+[deps]
+
+source_file="res://sound/music/Bunny's Wrath.mp3"
+dest_files=["res://.godot/imported/Bunny's Wrath.mp3-47c7e75aeaeffe6c3e555587cb5eeda8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
